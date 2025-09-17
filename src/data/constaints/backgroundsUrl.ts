@@ -1,0 +1,18 @@
+export const backgroundUrls = [
+  'https://c4.wallpaperflare.com/wallpaper/108/198/456/clash-royale-loading-screen-video-game-art-night-skeleton-hd-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/380/135/821/clash-royale-loading-screen-video-game-art-pigs-hammer-hd-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/13/207/789/clash-royale-video-game-art-loading-screen-artstation-monks-hd-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/663/544/867/clash-royale-video-game-art-barbarian-hd-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/199/811/687/clash-royale-boat-video-game-art-battle-waves-hd-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/980/561/141/artstation-clash-royale-christmas-video-game-art-hd-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/49/461/218/clash-royale-video-game-art-arena-snow-hd-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/753/515/657/arena-10-hog-mountain-clash-royale-supercell-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/1016/555/814/video-game-clash-royale-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/216/682/431/clash-royale-video-game-art-artstation-monks-waterfall-hd-wallpaper-preview.jpg',
+  'https://c4.wallpaperflare.com/wallpaper/642/975/816/video-game-clash-of-clans-wallpaper-preview.jpg',
+  'https://s2-techtudo.glbimg.com/5rwfapuUojHfVXVl6oA3qh239RQ=/1200x/smart/filters:cover():strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2024/q/V/u2OmcIRHmHxMzlA72kAQ/imagem-2024-04-03-233620117.png',
+  'https://images.squarespace-cdn.com/content/v1/5810d4f9c534a5c1440fa946/1537902582146-Z9PMVP28LG8Z1RLE63XZ/Screen+Shot+2018-09-23+at+3.55.39+PM.png',
+  'https://images.squarespace-cdn.com/content/v1/5810d4f9c534a5c1440fa946/1537902694324-K1CK97QIG40NHFV9PXFQ/Screen+Shot+2018-09-23+at+2.51.30+PM.png',
+  'https://images.squarespace-cdn.com/content/v1/5810d4f9c534a5c1440fa946/1537902649172-9GHCZMO3RZRZ9L4NWG5C/Screen+Shot+2018-09-23+at+2.32.23+PM.png',
+  'https://images.squarespace-cdn.com/content/v1/5810d4f9c534a5c1440fa946/1537902851950-2SQ3F6HUP2I93XRQONG3/Screen+Shot+2018-09-23+at+2.49.55+PM.png',
+]
