@@ -1,6 +1,7 @@
 "use client";
 
 import { backgroundUrls } from "@/data/constaints/backgroundsUrl";
+import useAppData from "@/data/hooks/useAppData";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -10,6 +11,7 @@ interface BackgroundProps {
 }
 
 export default function Background({ children, className }: BackgroundProps) {
+  const { theme, toggleTheme } = useAppData();
   const [backgroundIndex, setBackgroundIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -17,11 +19,11 @@ export default function Background({ children, className }: BackgroundProps) {
   }, []);
 
   return (
-    <main className={`relative flex flex-col min-h-screen overflow-hidden bg-slate-800`}>
+    <main className={`${theme} relative flex flex-col min-h-screen overflow-hidden bg-slate-400 dark:bg-slate-800`}>
       <Image
         src={backgroundUrls[backgroundIndex]}
         alt="background"
-        className="fixed inset-0 h-screen object-cover opacity-2"
+        className="fixed inset-0 h-screen object-cover opacity-5 dark:opacity-2"
         width={1000}
         height={1000}
         priority

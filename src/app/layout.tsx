@@ -1,3 +1,4 @@
+import { AppProvider } from "@/data/context/AppContext";
 import "../styles/globals.css";
 import type { Metadata } from "next";
 
@@ -13,9 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+      <AppProvider>
+        <body>
+          {children}
+        </body>
+      </AppProvider>
     </html>
   );
 }

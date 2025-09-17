@@ -1,9 +1,19 @@
 import { IoMenu } from "react-icons/io5";
 
-export default function ButtonHamburgerMenu() {
+interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
+  toggleExpanded: () => void;
+}
+
+export default function ButtonHamburgerMenu({
+  toggleExpanded,
+}: SidebarProps) {
   return (
-    <div className="flex">
-      <IoMenu className="text-gray-200 text-3xl"/>
-    </div>
+    <button
+      onClick={toggleExpanded}
+      aria-label="Abrir menu"
+      className="p-2 text-gray-200 hover:bg-slate-800 rounded-lg active:bg-slate-800"
+    >
+      <IoMenu size={28} />
+    </button>
   );
 };

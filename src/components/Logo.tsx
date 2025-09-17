@@ -20,7 +20,7 @@ export function Logo() {
 
 export function LogoWrapped() {
   return (
-    <div className={`flex items-center text-gray-200 gap-1 text-shadow-black text-shadow-sm ${clashRegularFont.className}`}>
+    <div className={`flex scale-80 items-center text-gray-200 gap-1 text-shadow-black text-shadow-sm ${clashRegularFont.className}`}>
       <GiCardExchange className="text-5xl mr-1"/>
       <div className="flex flex-col">
         <p className="flex gap-1 text-lg">

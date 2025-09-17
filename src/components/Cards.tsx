@@ -2,27 +2,38 @@
 
 import { useEffect, useState } from "react";
 import { royaleService } from "@/services/royale-api.service";
-
-import ElixirDrop from "@/components/icons/ElixirDrop";
 import CardWithCost from "./CardWithCost";
+import { AiOutlineLoading } from "react-icons/ai";
+import { clashRegularFont } from "@/fonts";
 
 export default function Cards() {
   const [cards, setCards] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     async function fetchCards() {
       try {
         const data = await royaleService.getAllCards();
         setCards(data.items);
+        setLoading(false);
       } catch (error) {
         console.error("Erro ao buscar cartas:", error);
+        setLoading(false);
       };
     };
 
     fetchCards();
   }, []);
 
-  return (
+  return loading 
+    ? (
+      <div className="flex justify-center items-center gap-2 h-screen w-screen">
+        <AiOutlineLoading className="animate-spin text-slate-950 dark:text-slate-200" />
+        <span className={`text-slate-950 dark:text-slate-200 ${clashRegularFont.className}`}>Carregando...</span>
+      </div>
+    )
+    : (
     <main className="mt-24">
       <div>
         <ul>
@@ -46,5 +57,5 @@ export default function Cards() {
         </ul>
       </div>
     </main>
-  );
-}
+  )
+};

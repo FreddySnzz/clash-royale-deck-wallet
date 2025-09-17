@@ -1,6 +1,7 @@
 'use client';
 
 import { MdSaveAlt } from "react-icons/md";
+import { RiGitRepositoryFill } from "react-icons/ri";
 import openLinkOnButton from "@/data/functions/openNewWindowButton";
 import ButtonFooterContact from "../buttons/ButtonFooterContact";
 import { Logo } from "../Logo";
@@ -18,11 +19,11 @@ export default function Footer({ className }: FooterProps) {
         <div className="text-gray-400">
           <br />
           <span>
-            {`This content is not affiliated with, endorsed, sponsored, 
-            or specifically approved by Supercell and Supercell is not responsible for it. For more information see`}
+            {`Este conteúdo não é afiliado, endossado, patrocinado, ou especialmente aprovado pela Supercell, e a Supercell não é responsável por isso. 
+            Para mais informações, veja a`}
           </span>
-          <span className="font-bold hover:text-slate-900" onClick={() => openLinkOnButton('https://www.supercell.com/fan-content-policy')}>
-            {` Supercell's Fan Content Policy`}
+          <span className="font-bold hover:text-blue-500 cursor-pointer" onClick={() => openLinkOnButton('https://www.supercell.com/fan-content-policy')}>
+            {` Política de Conteúdo da Supercell para fãs`}
           </span>
           <span>
             {`.`}
@@ -30,45 +31,53 @@ export default function Footer({ className }: FooterProps) {
         </div>
       </div>
 
-      <div className="container">
+      <div>
         <div className="flex flex-col mt-6">
           <p className="font-black text-amber-500">
-            FOLLOW ME
+            MINHAS REDES
           </p>
-          <div className="flex flex-col mt-2 text-gray-400">
-            <span onClick={() => openLinkOnButton('https://github.com/FreddySnzz')}>
-              GitHub
-            </span>
-            <span onClick={() => openLinkOnButton('https://www.linkedin.com/in/fredson-luiz/')}>
-              LinkedIn
-            </span>
+          <div className="flex mt-2 text-gray-400">
+            <div className="flex flex-col">
+              <span onClick={() => openLinkOnButton('https://github.com/FreddySnzz')} className="cursor-pointer hover:text-blue-500">
+                GitHub
+              </span>
+              <span onClick={() => openLinkOnButton('https://www.linkedin.com/in/fredson-luiz/')} className="cursor-pointer hover:text-blue-500">
+                LinkedIn
+              </span>
+            </div>
           </div>
         </div>
         <div className="flex flex-col mt-6">
           <p className="font-black text-amber-500">
             DOWNLOAD
           </p>
-          <div className="flex text-center mt-2 text-gray-400">
+          <div className="flex text-center mt-2 text-gray-400 hover:text-blue-500">
             <MdSaveAlt className="text-xl mr-2 " />
-            <span onClick={() => console.log("SAVE APP ON HOME SCREEN")}>
-              Save website on your home screen
+            <span onClick={() => console.log("SAVE APP ON HOME SCREEN")} className="cursor-pointer">
+              Salve o Website na sua Tela Principal
+            </span>
+          </div>
+          <div className="flex text-center mt-2 text-gray-400 hover:text-blue-500">
+            <RiGitRepositoryFill className="text-xl mr-2 " />
+            <span onClick={() => console.log("SAVE APP ON HOME SCREEN")} className="cursor-pointer">
+              Repositório do Projeto
             </span>
           </div>
         </div>
       </div>
 
-      <div className="container flex flex-col">
-        <hr className="mt-4 bg-muted-foreground"/>
+      <div className="flex flex-col">
+        <hr className="mt-4 border-muted-foreground"/>
         <div className="pt-4">
-          <p className="text-sm font-semibold text-muted-foreground">
+          <p className="text-xs mb-2 font-semibold text-muted-foreground">
             <span className="mr-1">
               &copy; 2025 |
             </span>
-            <span className="cursor-pointer" onClick={() => openLinkOnButton('https://portfolio-freddy-snzz.vercel.app/')}>
+            <span className="cursor-pointer hover:italic" onClick={() => openLinkOnButton('https://portfolio-freddy-snzz.vercel.app/')}>
               Fredson Luiz 
             </span>
             <span>
-              {` — All Rights Reserved.`}
+              {` — Todos os direitos reservados.`}
             </span>
           </p>
           <div className="mt-2">
@@ -77,7 +86,7 @@ export default function Footer({ className }: FooterProps) {
         </div>
 
         <div className="text-center text-sm text-gray-700 mt-6 mb-4">
-          <span>Feito com muito carinho. ❤️</span>
+          <span>Feito com muito carinho por um fã. ❤️</span>
         </div>
       </div>
     </footer>

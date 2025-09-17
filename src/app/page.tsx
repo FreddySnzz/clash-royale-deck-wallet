@@ -1,5 +1,5 @@
 import Background from "@/components/Background";
-import Cards from "@/components/Cards";
+import DeckWallet from "@/components/template/DeckWallet";
 import Footer from "@/components/template/Footer";
 import Layout from "@/components/template/Layout";
 import Navbar from "@/components/template/Navbar";
@@ -9,7 +9,7 @@ export default function Home() {
     <Background>
       <Navbar />
       <Layout>
-        <Cards />
+        <DeckWallet /> 
       </Layout>
       <Footer /> 
     </Background>
