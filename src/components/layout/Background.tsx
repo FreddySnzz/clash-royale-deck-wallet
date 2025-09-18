@@ -1,6 +1,6 @@
 "use client";
 
-import { backgroundUrls } from "@/data/constaints/backgroundsUrl";
+import { backgroundUrls } from "@/data/constants/backgroundsUrl";
 import useAppData from "@/data/hooks/useAppData";
 import Image from "next/image";
 import { useEffect, useState } from "react";

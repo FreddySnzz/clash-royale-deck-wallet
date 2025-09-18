@@ -2,7 +2,7 @@ import DeckContainer from "./DeckContainer";
 
 export default function DeckWallet() {
   return (
-    <div className="h-screen w-screen mt-12 bg-blue-500">
+    <div className="min-h-screen min-w-screen mt-12 p-4">
       <DeckContainer />
     </div>
   )

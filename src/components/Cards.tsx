@@ -4,6 +4,7 @@ import CardWithCost from "./CardWithCost";
 import { AiOutlineLoading } from "react-icons/ai";
 import { clashRegularFont } from "@/fonts";
 import { useCards } from "@/data/hooks/useCards";
+import CardShowcase from "./CardShowcase";
 
 export default function Cards() {
   const { cards, loading, error } = useCards();
@@ -25,27 +26,28 @@ export default function Cards() {
         <span className={`text-slate-950 dark:text-slate-200 ${clashRegularFont.className}`}>Carregando...</span>
       </div>
     ) : (
-      <main className="mt-24">
-        <div>
-          <ul>
-            {cards.map((card) => (
-              <li key={card.id}>
-                <p className={`font-bold text-white text-xl text-shadow-lg text-shadow-black`}>{card.name}</p>
-                <div className="flex">
+      <main>
+        <div className="p-4">
+          {cards.map((card) => (
+            <div key={card.id}>
+              {/* <p className={`font-bold text-white text-shadow-lg text-shadow-black`}>
+                {card.name}
+              </p> */}
+              <div className="">
+                {/* <CardWithCost 
+                  cardImage={card.iconUrls.medium} 
+                  cost={card?.elixirCost}
+                />
+                { card.iconUrls.evolutionMedium && 
                   <CardWithCost 
-                    cardImage={card.iconUrls.medium} 
+                    cardImage={card.iconUrls.evolutionMedium} 
                     cost={card?.elixirCost}
-                  />
-                  { card.iconUrls.evolutionMedium && 
-                    <CardWithCost 
-                      cardImage={card.iconUrls.evolutionMedium} 
-                      cost={card?.elixirCost}
-                    /> 
-                  }
-                </div>
-              </li>
-            ))}
-          </ul>
+                  /> 
+                } */}
+                <CardShowcase card={card} />
+              </div>
+            </div>
+          ))}
         </div>
       </main>
     );

@@ -1,5 +1,3 @@
-'use client';
-
 import ElixirDrop from "@/components/icons/ElixirDrop";
 
 interface CardWithCostProps {

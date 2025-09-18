@@ -5,14 +5,18 @@ import { RiGitRepositoryFill } from "react-icons/ri";
 import openLinkOnButton from "@/data/functions/openNewWindowButton";
 import ButtonFooterContact from "../buttons/ButtonFooterContact";
 import { Logo } from "../Logo";
+import { NetworkLinks } from "@/data/constants/networkUrl";
+import { useCards } from "@/data/hooks/useCards";
 
 interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 };
 
 export default function Footer({ className }: FooterProps) {
+  const { loading } = useCards();
+
   return (
-    <footer className={`w-full bg-slate-950 p-6 ${className}`}>
+    <footer className={`${ loading ? 'hidden' : ''} w-full bg-slate-950 p-6 ${className}`}>
       <div className="mt-2">
         <Logo />
 
@@ -38,10 +42,10 @@ export default function Footer({ className }: FooterProps) {
           </p>
           <div className="flex mt-2 text-gray-400">
             <div className="flex flex-col">
-              <span onClick={() => openLinkOnButton('https://github.com/FreddySnzz')} className="cursor-pointer hover:text-blue-500">
+              <span onClick={() => openLinkOnButton(NetworkLinks.GitHub)} className="cursor-pointer hover:text-blue-500">
                 GitHub
               </span>
-              <span onClick={() => openLinkOnButton('https://www.linkedin.com/in/fredson-luiz/')} className="cursor-pointer hover:text-blue-500">
+              <span onClick={() => openLinkOnButton(NetworkLinks.LinkedIn)} className="cursor-pointer hover:text-blue-500">
                 LinkedIn
               </span>
             </div>
@@ -59,7 +63,7 @@ export default function Footer({ className }: FooterProps) {
           </div>
           <div className="flex text-center mt-2 text-gray-400 hover:text-blue-500">
             <RiGitRepositoryFill className="text-xl mr-2 " />
-            <span onClick={() => console.log("SAVE APP ON HOME SCREEN")} className="cursor-pointer">
+            <span onClick={() => openLinkOnButton('https://github.com/FreddySnzz/clash-royale-deck-wallet')} className="cursor-pointer">
               Repositório do Projeto
             </span>
           </div>
@@ -73,7 +77,7 @@ export default function Footer({ className }: FooterProps) {
             <span className="mr-1">
               &copy; 2025 |
             </span>
-            <span className="cursor-pointer hover:italic" onClick={() => openLinkOnButton('https://portfolio-freddy-snzz.vercel.app/')}>
+            <span className="cursor-pointer hover:italic" onClick={() => openLinkOnButton(NetworkLinks.Portfolio)}>
               Fredson Luiz 
             </span>
             <span>

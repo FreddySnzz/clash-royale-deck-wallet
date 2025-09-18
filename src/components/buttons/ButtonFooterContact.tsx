@@ -1,3 +1,4 @@
+import { NetworkLinks } from "@/data/constants/networkUrl";
 import { 
   FaGithub, 
   FaLinkedinIn
@@ -8,7 +9,7 @@ export default function ButtonFooterContact() {
   return (
     <div className="flex">
       <a
-        href="https://portfolio-freddy-snzz.vercel.app/"
+        href={NetworkLinks.Portfolio}
         target="_blank"
         rel="noopener noreferrer"
         className="flex gap-1 text-gray-400 hover:text-red-600 transition-colors"
@@ -16,7 +17,7 @@ export default function ButtonFooterContact() {
         <TbWorldShare className="text-xl" />
       </a>
       <a
-        href="https://www.linkedin.com/in/fredson-luiz/"
+        href={NetworkLinks.LinkedIn}
         target="_blank"
         rel="noopener noreferrer"
         className="flex gap-1 ml-3 text-gray-400 hover:text-blue-500 transition-colors"
@@ -24,7 +25,7 @@ export default function ButtonFooterContact() {
         <FaLinkedinIn className="text-xl" />
       </a>
       <a
-        href="https://github.com/FreddySnzz"
+        href={NetworkLinks.GitHub}
         target="_blank"
         rel="noopener noreferrer"
         className="flex gap-1 ml-3 text-gray-400 hover:text-gray-700 transition-colors"

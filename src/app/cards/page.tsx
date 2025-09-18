@@ -1,10 +1,10 @@
-import DeckWallet from "@/components/layout/DeckWallet";
+import Cards from "@/components/Cards";
 import LayoutContainer from "@/components/layout/LayoutContainer";
 
-export default function Home() {
+export default function CardsPage() {
   return (
     <LayoutContainer>
-      <DeckWallet /> 
+      <Cards /> 
     </LayoutContainer>
   );
 }

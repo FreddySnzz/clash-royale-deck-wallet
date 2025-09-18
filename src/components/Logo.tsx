@@ -1,5 +1,6 @@
 import { GiCardExchange } from "react-icons/gi";
 import { clashRegularFont } from "@/fonts"
+import Link from "next/link";
 
 export function Logo() {
   return (
@@ -20,21 +21,23 @@ export function Logo() {
 
 export function LogoWrapped() {
   return (
-    <div className={`flex scale-80 items-center text-gray-200 gap-1 text-shadow-black text-shadow-sm ${clashRegularFont.className}`}>
-      <GiCardExchange className="text-5xl mr-1"/>
-      <div className="flex flex-col">
-        <p className="flex gap-1 text-lg">
-          <span>
-            {`DECK`} 
-          </span>
-          <span className="text-amber-500">
-            {`ROYALE`}
-          </span>
-        </p>
-        <p className="text-lg">
-          {`WALLET`}
-        </p>
+    <Link href={'/'}>
+      <div className={`flex scale-80 items-center text-gray-200 gap-1 text-shadow-black text-shadow-sm ${clashRegularFont.className}`}>
+        <GiCardExchange className="text-5xl mr-1"/>
+        <div className="flex flex-col">
+          <p className="flex gap-1 text-lg">
+            <span>
+              {`DECK`} 
+            </span>
+            <span className="text-amber-500">
+              {`ROYALE`}
+            </span>
+          </p>
+          <p className="text-lg">
+            {`WALLET`}
+          </p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };

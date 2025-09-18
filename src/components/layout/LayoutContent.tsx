@@ -5,7 +5,7 @@ interface LayoutContentProps {
 
 export default function LayoutContent({ children, className }: LayoutContentProps) {
   return (
-    <div className={`flex flex-col mt-7 ${className}`}>
+    <div className={`flex flex-col mt-28 ${className}`}>
       {children}
     </div>
   );

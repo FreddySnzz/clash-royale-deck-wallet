@@ -135,8 +135,22 @@ body {
   scrollbar-width: none;     /* Firefox */
 }
 
+/* Gradiente */
+@keyframes gradient-x {
+  100% {
+    background-position: 0% 50%;
+  }
+  0% {
+    background-position: 200% 50%;
+  }
+}
+
 /* Animações */
 .scroll-smooth-touch {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s linear infinite;
 }

@@ -8,6 +8,7 @@ import { RiUserSearchLine } from "react-icons/ri";
 import SidebarItem from "./SidebarItem";
 import { SidebarItemCollapse } from "./SidebarItemCollapse";
 import { useLockBodyScroll } from "@/data/hooks/useBodyLockScroll";
+import Link from "next/link";
 
 interface SidebarProps {
   open: boolean;
@@ -31,7 +32,11 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-4">
-          <h2 className="text-slate-100 font-bold text-lg my-2">Menu Principal</h2>
+          <Link href={'/'}>
+            <h2 className="text-slate-100 font-bold text-lg my-2">
+              Menu Principal
+            </h2>
+          </Link>
           <button onClick={onClose} aria-label="Fechar menu">
             <FaTimes className="text-slate-100 text-xl" />
           </button>
@@ -46,7 +51,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           <SidebarItem icon={<RiUserSearchLine />} label="Procurar Usuário" href="/search-user" />
           </SidebarItemCollapse>
           <SidebarItemCollapse title="Wiki">
-            <SidebarItem icon={<TbCardsFilled />} label="Todas as Cartas" href="/all-cards" />
+            <SidebarItem icon={<TbCardsFilled />} label="Todas as Cartas" href="/cards" />
           </SidebarItemCollapse>
         </nav>
       </aside>

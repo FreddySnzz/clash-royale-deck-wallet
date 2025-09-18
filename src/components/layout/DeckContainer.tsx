@@ -1,6 +1,6 @@
 export default function DeckContainer() {
   return (
-    <div className="bg-blue-700">
+    <div className="mt-8 p-2 bg-blue-700">
       deck
     </div>
   )
