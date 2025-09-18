@@ -1,4 +1,5 @@
 import Background from "@/components/Background";
+import Cards from "@/components/Cards";
 import DeckWallet from "@/components/template/DeckWallet";
 import Footer from "@/components/template/Footer";
 import Layout from "@/components/template/Layout";

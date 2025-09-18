@@ -1,12 +1,11 @@
-const api = {
-  get: async <T>(endpoint: string): Promise<T> => {
-    const res = await fetch(`/api/${endpoint}`, { cache: "no-store" });
-    
-    if (!res.ok) throw new Error(`Erro ao buscar ${endpoint}`);
-    return res.json();
-  },
-};
+import { api } from ".";
+import { CardInterface, CardListInterface } from "@/types/Card.type";
+import { PlayerInterface } from "@/types/Player.type";
 
-export const royaleService = {
-  getAllCards: () => api.get<{ items: any[] }>("cards"),
+export const clashRoyaleAPIExternalService = {
+  getAllCards: async (): Promise<CardInterface[]> => {
+    const data = await api.get<CardListInterface>("cards");
+    return [...data.items, ...data.supportItems];
+  },
+  getPlayerByTag: (playerTag: string) => api.get<PlayerInterface>(`players/${playerTag}`)
 };
