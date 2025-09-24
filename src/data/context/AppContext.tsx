@@ -15,16 +15,16 @@ interface AppContextProps {
 const AppContext = createContext<AppContextProps>({});
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState('');
+  const [theme, setTheme] = useState('light');
 
   function toggleTheme() {
-    const newTheme = theme === 'dark' ? '' : 'dark';
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
   };
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || '';
+    const savedTheme = localStorage.getItem('theme') || 'light';
     setTheme(savedTheme);
   }, []);
 

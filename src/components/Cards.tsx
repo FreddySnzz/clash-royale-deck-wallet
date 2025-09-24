@@ -5,6 +5,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import { clashRegularFont } from "@/fonts";
 import { useCards } from "@/data/hooks/useCards";
 import CardShowcase from "./CardShowcase";
+import Loading from "./Loading";
 
 export default function Cards() {
   const { cards, loading, error } = useCards();
@@ -21,31 +22,13 @@ export default function Cards() {
 
   return loading ? 
     (
-      <div className="fixed top-0 left-0 flex justify-center items-center gap-2 h-screen w-screen z-50">
-        <AiOutlineLoading className="animate-spin text-slate-950 dark:text-slate-200" />
-        <span className={`text-slate-950 dark:text-slate-200 ${clashRegularFont.className}`}>Carregando...</span>
-      </div>
+      <Loading />
     ) : (
       <main>
         <div className="p-4">
           {cards.map((card) => (
             <div key={card.id}>
-              {/* <p className={`font-bold text-white text-shadow-lg text-shadow-black`}>
-                {card.name}
-              </p> */}
-              <div className="">
-                {/* <CardWithCost 
-                  cardImage={card.iconUrls.medium} 
-                  cost={card?.elixirCost}
-                />
-                { card.iconUrls.evolutionMedium && 
-                  <CardWithCost 
-                    cardImage={card.iconUrls.evolutionMedium} 
-                    cost={card?.elixirCost}
-                  /> 
-                } */}
-                <CardShowcase card={card} />
-              </div>
+              <CardShowcase card={card} />
             </div>
           ))}
         </div>

@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { clashRoyaleAPIExternalService } from "@/services/royale-api.service";
-import { CardInterface } from "@/types/Card.type";
+import { statsRoyaleAPIExternalService } from "@/services/royale-api.service";
+import { CardDto } from "../dtos/card.dto";
 
 export function useCards() {
-  const [cards, setCards] = useState<CardInterface[]>([]);
+  const [cards, setCards] = useState<CardDto[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     async function fetchCards() {
       try {
-        const data = await clashRoyaleAPIExternalService.getAllCards();
+        const data = await statsRoyaleAPIExternalService.getAllCards();
         setCards(data);
       } catch (err) {
         console.error("Erro ao buscar cartas:", err);
