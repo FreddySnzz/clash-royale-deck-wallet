@@ -27,6 +27,7 @@ export const statsRoyaleAPIExternalService = {
           speed: spell.summonCharacterData?.tidSpeed ? json[spell.summonCharacterData?.tidSpeed] : '',
           targets: spell.summonCharacterData?.tidTarget ? json[spell.summonCharacterData?.tidTarget] : '',
           damage: spell.summonCharacterData?.damage,
+          deployTime: spell.summonCharacterData?.deployTime,
         },
         statCharacterData: spell.statCharacterData && {
           hitpoints: spell.statCharacterData?.hitpoints,
@@ -34,11 +35,35 @@ export const statsRoyaleAPIExternalService = {
           loadTime: spell.statCharacterData?.loadTime,
           range: spell.statCharacterData?.range,
           targets: spell.statCharacterData?.tidTarget,
-          projectileData: {
+          projectileData: spell.statCharacterData.projectileData && {
             damage: spell.statCharacterData?.projectileData?.damage,
           }
         },
-        imagesUrl: cardImages[spell.name as keyof typeof cardImages]
+        projectileWaves: spell.projectileWaves,
+        radius: spell?.radius,
+        projectileData: spell.projectileData && {
+          damage: spell.projectileData?.damage,
+          crownTowerDamagePercent: spell.projectileData?.crownTowerDamagePercent,
+          buffTime: spell.projectileData?.buffTime,
+          radius: spell.projectileData?.radius,
+          targets: spell.projectileData?.tidTarget ? json[spell.projectileData?.tidTarget] : '',
+        },
+        areaEffectObjectData: spell.areaEffectObjectData && {
+          hitPolifeDurationints: spell.areaEffectObjectData?.hitPolifeDurationints,
+          lifeDuration: spell.areaEffectObjectData?.lifeDuration,
+          radius: spell.areaEffectObjectData?.radius,
+          damage: spell.areaEffectObjectData?.damage,
+          onlyEnemies: spell.areaEffectObjectData?.onlyEnemies,
+          hitsGround: spell.areaEffectObjectData?.hitsGround,
+          hitsAir: spell.areaEffectObjectData?.hitsAir,
+          projectileData: spell.areaEffectObjectData?.projectileData && {
+            damage: spell.areaEffectObjectData?.projectileData?.damage,
+            crownTowerDamagePercent: spell.areaEffectObjectData?.projectileData?.crownTowerDamagePercent,
+            buffTime: spell.areaEffectObjectData?.projectileData?.buffTime,
+          },
+        },
+        imagesUrl: cardImages[spell.name as keyof typeof cardImages],
+        englishName: spell.englishName
       }
     ));
   },

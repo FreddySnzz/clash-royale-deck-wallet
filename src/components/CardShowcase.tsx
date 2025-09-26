@@ -18,23 +18,26 @@ export default function CardShowcase({ card }: CardShowcaseProps) {
   };
 
   return (
-    <div className="flex flex-col rounded-4xl bg-zinc-400 dark:bg-slate-700 shadow-md shadow-black/20 mb-8">
+    <section 
+      id={card.name}
+      className="flex flex-col rounded-4xl bg-zinc-500/50 dark:bg-slate-700 shadow-md shadow-black/20 mb-8"
+    >
       <p className={`text-slate-100 text-shadow-md text-2xl text-shadow-black mt-8 mb-4 text-center ${clashRegularFont.className}`}>
         {card.name}
       </p>
 
       <div className="flex justify-center gap-8">
         <div className="relative" onClick={toggleIsOpen}>
-          <img src={card.imagesUrl.card} alt="cardImage" className="w-30 h-40"/>
+          <img src={card.imagesUrl.card} alt="cardImage" className="w-30 h-40 object-cover" />
           { card.elixirCost && 
-            <div className="absolute top-[-35] left-[-40]">
+            <div className="absolute top-[-20] left-[-35]">
               <ElixirDrop cost={card.elixirCost} size="lg" />
             </div>
           }
         </div>
         { card.imagesUrl.evoCard && 
-          <div onClick={toggleIsOpen}>
-            <img src={card.imagesUrl.evoCard} alt="cardImage" className="w-30 h-40"/>
+          <div className="relative" onClick={toggleIsOpen}>
+            <img src={card.imagesUrl.evoCard} alt="evoCardImage" className="w-30 h-40 object-cover" />
             <span className={`relative top-[0] left-[0] w-full font-bold 
               bg-gradient-to-r from-[#9315e4] via-[#dea9ff] to-[#9315e4] bg-clip-text text-transparent animate-gradient-x`}
             >
@@ -52,6 +55,6 @@ export default function CardShowcase({ card }: CardShowcaseProps) {
           card
         </span>
       </div>
-    </div>
+    </section>
   );
 }

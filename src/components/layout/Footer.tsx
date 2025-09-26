@@ -6,14 +6,14 @@ import openLinkOnButton from "@/data/functions/openNewWindowButton";
 import ButtonFooterContact from "../buttons/ButtonFooterContact";
 import { Logo } from "../Logo";
 import { NetworkLinks } from "@/data/constants/networkUrl";
-import { useCards } from "@/data/hooks/useCards";
+import { useCardsContext } from "@/data/context/CardsContext";
 
 interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 };
 
 export default function Footer({ className }: FooterProps) {
-  const { loading } = useCards();
+  const { loading } = useCardsContext();
 
   return (
     <footer className={`${ loading ? 'hidden' : ''} w-full bg-slate-950 p-6 ${className}`}>

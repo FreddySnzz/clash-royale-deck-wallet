@@ -3,9 +3,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { clashRegularFont } from "@/fonts";
 import { CardDto } from "@/data/dtos/card.dto";
-import { iconsRoyale } from "@/data/constants/iconsUrl";
 import { useLockBodyScroll } from "@/data/hooks/useBodyLockScroll";
 import ButtonClose from "../buttons/ButtonClose";
+import { TroopCardInfo } from "../cards/TroopInfo";
+import { ConstructionCardInfo } from "../cards/ConstructionInfo";
+import { SpellCardInfo } from "../cards/SpellInfo";
+import { TowerTroopCardInfo } from "../cards/TowerTroopInfo";
 
 interface ModalCardInfoProps {
   isOpen: boolean;
@@ -14,28 +17,42 @@ interface ModalCardInfoProps {
 }
 
 export default function ModalCardInfo({ isOpen, onClose, card }: ModalCardInfoProps) {
-  console.log(card)
   useLockBodyScroll(isOpen);
+
+  const renderCardTypeComponent = (card: CardDto) => {
+    switch (card.type) {
+      case "Feitiço":
+        return <SpellCardInfo card={card} />;
+      case "Tropa":
+        return <TroopCardInfo card={card} />;
+      case "Tropa de Torre":
+        return <TowerTroopCardInfo card={card} />;
+      case "Construção":
+        return <ConstructionCardInfo card={card} />;
+      default:
+        return <div>Tipo de carta não suportado</div>;
+    }
+  };
 
   return (
     <AnimatePresence>
       { isOpen && (
         <>
           <motion.div
-            className="fixed inset-0 bg-slate-950/90 z-49"
+            className="fixed inset-0 bg-slate-950/90 z-48 flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-          />
-          <motion.div
-            className="fixed inset-0 z-49 flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.95, y: -20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="relative bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 w-[90%]">
+            <motion.div 
+              className="relative bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 w-[90%] z-49"
+              initial={{ opacity: 0, scale: 0.95, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }} 
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="flex justify-end">
                 <ButtonClose onClose={onClose} />
               </div>
@@ -44,7 +61,12 @@ export default function ModalCardInfo({ isOpen, onClose, card }: ModalCardInfoPr
                 {card.name}
               </h1>
               <h3 className={`text-xs text-slate-400 text-center mb-8 ${clashRegularFont.className}`}>
-                {card.cardDescription}
+                {card.cardDescription.replace(/\\q/g, '"').split('\\n').map((line, index) => (
+                  <span key={index}>
+                    {line}
+                    <br/>
+                  </span>
+                ))}
               </h3>
               
               <div className="flex flex-col text-xs mb-4">
@@ -66,88 +88,20 @@ export default function ModalCardInfo({ isOpen, onClose, card }: ModalCardInfoPr
                   </span>
                 </div>
 
-                <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
-                  <div className="flex items-center">
-                    <img src={iconsRoyale.hitpoints} alt="hitpoints" className="w-5 h-5" />
-                    <span className="text-slate-500 text-shadow-sm ml-1">
-                      Vida
-                    </span>
-                  </div>
-                  <span className="text-slate-100 text-shadow-sm text-shadow-black mr-1">
-                    {card.summonCharacterData?.hitPoints} {`(nv. 1)`}
-                  </span>
-                </div>
+                {renderCardTypeComponent(card)}
 
-                <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
-                  <div className="flex items-center">
-                    <img src={iconsRoyale.damage} alt="damage" className="w-5 h-5" />
-                    <span className="text-slate-500 text-shadow-sm ml-1">
-                      Dano
-                    </span>
-                  </div>
-                  <span className="text-slate-100 text-shadow-sm text-shadow-black mr-1">
-                    {card.summonCharacterData?.damage} {`(nv. 1)`}
-                  </span>
-                </div>
-
-                <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
-                  <div className="flex items-center">
-                    <img src={iconsRoyale.hitspeed} alt="hitspeed" className="w-5 h-5" />
-                    <span className="text-slate-500 text-shadow-sm ml-1">
-                      Velocidade de ataque
-                    </span>
-                  </div>
-                  <span className="text-slate-100 text-shadow-sm text-shadow-black mr-1">
-                    {Number(card.summonCharacterData?.hitSpeed)/1000}seg
-                  </span>
-                </div>
-
-                <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
-                  <div className="flex items-center">
-                    <img src={iconsRoyale.range} alt="range" className="w-5 h-5" />
-                    <span className="text-slate-500 text-shadow-sm ml-1">
-                      Alcance
-                    </span>
-                  </div>
-                  <span className="text-slate-100 text-shadow-sm text-shadow-black mr-1">
-                    {Number(card.summonCharacterData?.range)/1000}
-                  </span>
-                </div>
-
-                <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
-                  <div className="flex items-center">
-                    <img src={iconsRoyale.speed} alt="speed" className="w-5 h-5" />
-                    <span className="text-slate-500 text-shadow-sm ml-1">
-                      Velocidade
-                    </span>
-                  </div>
-                  <span className="text-slate-100 text-shadow-sm text-shadow-black mr-1">
-                    {card.summonCharacterData?.speed}
-                  </span>
-                </div>
-                
-                <div className={`flex items-center justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
-                  <div className="flex items-center">
-                    <img src={iconsRoyale.target} alt="targets" className="w-5 h-5" />
-                    <span className="text-slate-500 text-shadow-sm ml-1">
-                      Alvos
-                    </span>
-                  </div>
-                  <span className="text-slate-100 text-shadow-sm text-shadow-black mr-1">
-                    {card.summonCharacterData?.targets}
-                  </span>
-                </div>
               </div>
-
-              <div className="flex justify-center mb-4">
-                <img
-                  src={card.imagesUrl.usage}
-                  alt="Gif animado"
-                  loading="lazy"
-                  className="rounded-xl w-80 h-60"
-                />
-              </div>
-            </div>
+              { card.imagesUrl.usage && 
+                <div className="flex justify-center mb-4">
+                  <img
+                    src={card.imagesUrl.usage}
+                    alt="preview_usage.gif"
+                    loading="lazy"
+                    className="rounded-xl w-85 h-55"
+                  />
+                </div>
+              }
+            </motion.div>
           </motion.div>
         </>
       )}

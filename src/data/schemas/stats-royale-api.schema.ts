@@ -21,7 +21,27 @@ const imagesUrlSchema = z.object({
   usage: z.string().optional(),
   evoUsage: z.string().optional(),
   render: z.string().optional(),
-  evoRender: z.string().optional()
+  evoRender: z.string().optional(),
+  badge: z.string().optional()
+}).passthrough();
+
+const ProjectileDataSchema = z.object({
+  damage: z.number().optional(),
+  crownTowerDamagePercent: z.number().optional(),
+  buffTime: z.number().optional(),
+  radius: z.number().optional(),
+  tidTarget: z.string().optional(),
+}).passthrough();
+
+const AreaEffectObjectDataSchema = z.object({
+  hitPolifeDurationints: z.number().optional(),
+  lifeDuration: z.number().optional(),
+  radius: z.number().optional(),
+  damage: z.number().optional(),
+  onlyEnemies: z.boolean().optional(),
+  hitsGround: z.boolean().optional(),
+  hitsAir: z.boolean().optional(),
+  projectileData: ProjectileDataSchema.optional(),
 }).passthrough();
 
 export const SummonCharacterDataSchema = z.object({
@@ -69,6 +89,10 @@ export const SpellSchema = z.object({
   summonCharacterData: SummonCharacterDataSchema.optional(),
   statCharacterData: StatCharacterDataSchema.optional(),
   evolvedSpellsData: EvolvedSpellsDataSchema.optional(),
+  projectileWaves: z.number().optional(),
+  radius: z.number().optional(),
+  projectileData: ProjectileDataSchema.optional(),
+  areaEffectObjectData: AreaEffectObjectDataSchema.optional(),
   imagesUrl: imagesUrlSchema,
   englishName: z.string().optional(),
 }).passthrough();

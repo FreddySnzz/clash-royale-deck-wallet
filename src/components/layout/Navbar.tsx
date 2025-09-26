@@ -8,12 +8,12 @@ import useScrollDirection from "@/data/hooks/useScrollDetect";
 import { LogoWrapped } from "../Logo";
 import { ThemeToggle } from "../buttons/ButtonThemeToggleButton";
 import { Searchbar } from "./Searchbar";
-import { useCards } from "@/data/hooks/useCards";
+import { useCardsContext } from "@/data/context/CardsContext";
 
 export default function Navbar() {
   const { isScrolled, scrollDirection } = useScrollDirection();
   const [expanded, setExpanded] = useState(false);
-  const { loading } = useCards();
+  const { loading } = useCardsContext();
 
   const toggleExpanded = () => {
     setExpanded((prev) => !prev);
