@@ -2,11 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import axios from "axios";
 
-export async function GET(
-  req: NextRequest,
-  context: { params: { tag: string } }
-) {
-  const playerTag = context.params.tag;
+export async function GET(req: NextRequest, { params }: any) {
+  const playerTag = params.tag;
 
   try {
     const { data } = await axios.get(
