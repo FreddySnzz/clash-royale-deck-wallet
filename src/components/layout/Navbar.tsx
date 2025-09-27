@@ -10,9 +10,7 @@ import { ThemeToggle } from "../buttons/ButtonThemeToggleButton";
 import { Searchbar } from "./Searchbar";
 import { useCardsContext } from "@/data/context/CardsContext";
 
-export default function Navbar({ searchParams }: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+export default function Navbar() {
   const { isScrolled, scrollDirection } = useScrollDirection();
   const [expanded, setExpanded] = useState(false);
   const { loading } = useCardsContext();
@@ -38,7 +36,7 @@ export default function Navbar({ searchParams }: {
             <ButtonHamburgerMenu toggleExpanded={toggleExpanded} />
           </div>
         </div>
-        <Searchbar searchParams={searchParams} />
+        <Searchbar />
       </motion.header>
 
       <Sidebar open={expanded} onClose={() => setExpanded(false)} />

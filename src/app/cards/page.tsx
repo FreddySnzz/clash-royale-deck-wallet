@@ -1,12 +1,20 @@
 import Cards from "@/components/cards/Cards";
 import LayoutContainer from "@/components/layout/LayoutContainer";
 
-export default function CardsPage({ searchParams }: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+interface CardsPageProps {
+  searchParams?: {
+    search?: string;
+    id?: string;
+  };
+};
+
+export default function CardsPage({ searchParams }: CardsPageProps) {
+  const searchQuery = searchParams?.search ?? "";
+  const searchQueryById = searchParams?.id ?? "";
+
   return (
-    <LayoutContainer searchParams={searchParams}>
-      <Cards searchParams={searchParams}/>
+    <LayoutContainer>
+      <Cards searchText={searchQuery} cardId={searchQueryById}/>
     </LayoutContainer>
   );
 }

@@ -3,18 +3,13 @@ import Footer from "./Footer";
 import Layout from "./Layout";
 import Navbar from "./Navbar";
 
-export default function LayoutContainer({
-  children,
-  className,
-  searchParams,
-}: {
+export default function LayoutContainer({ children, className }: {
   children?: React.ReactNode;
   className?: string;
-  searchParams?: { [key: string]: string | string[] | undefined }; 
 }) {
   return (
     <Background>
-      <Navbar searchParams={searchParams ?? {}} />
+      <Navbar />
       <Layout className={className}>
         {children}
       </Layout>

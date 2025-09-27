@@ -8,32 +8,30 @@ import CardNotFound from "./CardNotFound";
 import { normalizeText } from "@/data/functions/removeAccent";
 import { useQueryParams } from "@/data/hooks/useQueryParams";
 
-export default function Cards({ searchParams }: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+interface CardsProps {
+  searchText?: string;
+  cardId?: string;
+};
+
+export default function Cards({ searchText, cardId }: CardsProps) {
   const { cards, loading, error } = useCardsContext();
 
-  const { search, id } = useQueryParams<"search" | "id">(searchParams || {}, {
-    search: "",
-    id: "",
-  });
-
   const filteredCards = useMemo(() => {
-    if (id) {
+    if (cardId) {
       return cards.filter((card) =>
-        card.id?.toString().includes(id.toString())
+        card.id?.toString().includes(cardId.toString())
       );
     };
 
-    if (search) {
+    if (searchText) {
       return cards.filter((card) =>
-        normalizeText(card.name.toLowerCase()).includes(normalizeText(search)) || 
-        card?.englishName?.toLowerCase().includes(search.toLowerCase())
+        normalizeText(card.name.toLowerCase()).includes(normalizeText(searchText)) || 
+        card?.englishName?.toLowerCase().includes(searchText.toLowerCase())
       );
     };
 
     return cards;
-  }, [cards, search, id]);
+  }, [cards, searchText, cardId]);
 
   if (error) {
     return (

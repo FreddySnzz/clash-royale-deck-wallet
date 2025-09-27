@@ -2,24 +2,21 @@
 
 import Link from "next/link";
 import { ChangeEvent, useEffect, useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { IoSearchOutline } from "react-icons/io5";
 import { useCardsContext } from "@/data/context/CardsContext";
 import { normalizeText } from "@/data/functions/removeAccent";
 import RenderIcons from "../icons/RenderIcons";
-import { useQueryParams } from "@/data/hooks/useQueryParams";
 
-export function Searchbar({ searchParams }: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+interface SearchbarProps {
+  searchTextQuery?: string;
+};
+
+export function Searchbar({ searchTextQuery }: SearchbarProps) {
   const router = useRouter();
   const { cards } = useCardsContext();
-  
-  const { search } = useQueryParams<"search">(searchParams || {}, {
-    search: "",
-  });
 
-  const [searchText, setSearchText] = useState(search);
+  const [searchText, setSearchText] = useState(searchTextQuery || '');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
@@ -46,8 +43,8 @@ export function Searchbar({ searchParams }: {
   }, [cards, searchText]);
 
   useEffect(() => {
-    setSearchText(search);
-  }, [search]);
+    setSearchText(searchTextQuery || '');
+  }, [searchTextQuery]);
 
   return (
     <form className="flex flex-col w-full" onSubmit={handleSearch}>
