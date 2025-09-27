@@ -1,12 +1,11 @@
 import DeckWallet from "@/components/layout/DeckWallet";
 import LayoutContainer from "@/components/layout/LayoutContainer";
-import type { SearchParams } from "@/types/PageProps";
 
 export default function Home({ searchParams }: {
-  searchParams?: SearchParams;
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
   return (
-    <LayoutContainer searchParams={searchParams}>
+    <LayoutContainer>
       <DeckWallet /> 
     </LayoutContainer>
   );

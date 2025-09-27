@@ -2,21 +2,22 @@
 
 import Link from "next/link";
 import { ChangeEvent, useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { IoSearchOutline } from "react-icons/io5";
 import { useCardsContext } from "@/data/context/CardsContext";
 import { normalizeText } from "@/data/functions/removeAccent";
 import RenderIcons from "../icons/RenderIcons";
 import { useQueryParams } from "@/data/hooks/useQueryParams";
-import { SearchParams } from "@/types/PageProps";
 
-export function Searchbar({ searchParams }: {
-  searchParams?: SearchParams;
-}) {
+interface SeachbarProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export function Searchbar({ searchParams }: SeachbarProps) {
   const router = useRouter();
   const { cards } = useCardsContext();
   
-  const { search } = useQueryParams<"search">(searchParams || {}, {
+  const { search } = useQueryParams<"search">(searchParams, {
     search: "",
   });
 

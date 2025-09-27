@@ -1,13 +1,14 @@
 import Cards from "@/components/cards/Cards";
 import LayoutContainer from "@/components/layout/LayoutContainer";
-import type { SearchParams } from "@/types/PageProps";
 
-export default function CardsPage({ searchParams }: {
-  searchParams?: SearchParams;
-}) {
+interface PageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function CardsPage({ searchParams }: PageProps) {
   return (
-    <LayoutContainer searchParams={searchParams}>
-      <Cards searchParams={searchParams} />
+    <LayoutContainer>
+      <Cards searchParams={searchParams}/>
     </LayoutContainer>
   );
 }

@@ -2,22 +2,23 @@ import Background from "./Background";
 import Footer from "./Footer";
 import Layout from "./Layout";
 import Navbar from "./Navbar";
-import type { SearchParams } from "@/types/PageProps";
 
-interface LayoutContainerProps {
+export default function LayoutContainer({
+  children,
+  className,
+  searchParams,
+}: {
   children?: React.ReactNode;
   className?: string;
-  searchParams?: SearchParams;
-}
-
-export default function LayoutContainer( props: LayoutContainerProps ) {
+  searchParams?: { [key: string]: string | string[] | undefined }; 
+}) {
   return (
     <Background>
-      <Navbar />
-      <Layout>
-        {props.children}
+      <Navbar searchParams={searchParams ?? {}} />
+      <Layout className={className}>
+        {children}
       </Layout>
-      <Footer /> 
+      <Footer />
     </Background>
   );
-};
+}
