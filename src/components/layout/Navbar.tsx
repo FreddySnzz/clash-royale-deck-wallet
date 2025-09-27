@@ -11,7 +11,7 @@ import { Searchbar } from "./Searchbar";
 import { useCardsContext } from "@/data/context/CardsContext";
 
 export default function Navbar({ searchParams }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const { isScrolled, scrollDirection } = useScrollDirection();
   const [expanded, setExpanded] = useState(false);

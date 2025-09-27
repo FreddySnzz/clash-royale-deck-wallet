@@ -9,15 +9,13 @@ import { normalizeText } from "@/data/functions/removeAccent";
 import RenderIcons from "../icons/RenderIcons";
 import { useQueryParams } from "@/data/hooks/useQueryParams";
 
-interface SeachbarProps {
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export function Searchbar({ searchParams }: SeachbarProps) {
+export function Searchbar({ searchParams }: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
   const router = useRouter();
   const { cards } = useCardsContext();
   
-  const { search } = useQueryParams<"search">(searchParams, {
+  const { search } = useQueryParams<"search">(searchParams || {}, {
     search: "",
   });
 
