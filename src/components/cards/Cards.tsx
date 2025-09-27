@@ -7,15 +7,14 @@ import { useCardsContext } from "@/data/context/CardsContext";
 import CardNotFound from "./CardNotFound";
 import { normalizeText } from "@/data/functions/removeAccent";
 import { useQueryParams } from "@/data/hooks/useQueryParams";
+import { SearchParams } from "@/types/PageProps";
 
-interface CardsProps {
-  searchParams: { [key: string]: string | string[] | undefined };
-}
-
-export default function Cards({ searchParams }: CardsProps) {
+export default function Cards({ searchParams }: {
+  searchParams?: SearchParams;
+}) {
   const { cards, loading, error } = useCardsContext();
 
-  const { search, id } = useQueryParams<"search" | "id">(searchParams, {
+  const { search, id } = useQueryParams<"search" | "id">(searchParams || {}, {
     search: "",
     id: "",
   });

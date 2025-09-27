@@ -9,9 +9,11 @@ import { LogoWrapped } from "../Logo";
 import { ThemeToggle } from "../buttons/ButtonThemeToggleButton";
 import { Searchbar } from "./Searchbar";
 import { useCardsContext } from "@/data/context/CardsContext";
-import { PageProps } from "@/data/interfaces/PageProps";
+import { SearchParams } from "@/types/PageProps";
 
-export default function Navbar({ searchParams }: PageProps) {
+export default function Navbar({ searchParams }: {
+  searchParams?: SearchParams;
+}) {
   const { isScrolled, scrollDirection } = useScrollDirection();
   const [expanded, setExpanded] = useState(false);
   const { loading } = useCardsContext();
