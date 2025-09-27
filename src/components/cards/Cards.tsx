@@ -6,14 +6,13 @@ import Loading from "../Loading";
 import { useCardsContext } from "@/data/context/CardsContext";
 import CardNotFound from "./CardNotFound";
 import { normalizeText } from "@/data/functions/removeAccent";
-import { useQueryParams } from "@/data/hooks/useQueryParams";
 
 interface CardsProps {
   searchText?: string;
   cardId?: string;
 };
 
-export default function Cards({ searchText, cardId }: CardsProps) {
+export default function Cards({ searchText = "", cardId = "" }: CardsProps) {
   const { cards, loading, error } = useCardsContext();
 
   const filteredCards = useMemo(() => {
