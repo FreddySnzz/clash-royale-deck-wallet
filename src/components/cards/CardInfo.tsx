@@ -2,10 +2,10 @@ import ElixirDrop from "@/components/icons/ElixirDrop";
 import { motion, AnimatePresence } from "framer-motion";
 import { capitalizeWord } from "@/data/functions/capitalizeWord";
 import { clashRegularFont } from "@/fonts";
-import RarityCardColorText from "./RarityCardColor";
 import { CardDto } from "@/data/dtos/card.dto";
 import { useState } from "react";
-import ModalCardInfo from "./layout/ModalCardInfo";
+import ModalCardInfo from "../layout/ModalCardInfo";
+import RarityCardColorText from "./RarityCardColor";
 
 interface CardInfoProps {
   card: CardDto

@@ -1,6 +1,6 @@
-import { AppProvider } from "@/data/context/AppContext";
 import "../styles/globals.css";
 import type { Metadata } from "next";
+import { AppProvider } from "@/data/context/AppContext";
 import { CardsProvider } from "@/data/context/CardsContext";
 
 export const metadata: Metadata = {

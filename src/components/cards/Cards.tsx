@@ -1,35 +1,41 @@
-'use client';
+"use client";
 
 import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
 import CardShowcase from "./CardShowcase";
-import Loading from "./Loading";
+import Loading from "../Loading";
 import { useCardsContext } from "@/data/context/CardsContext";
 import CardNotFound from "./CardNotFound";
 import { normalizeText } from "@/data/functions/removeAccent";
+import { useQueryParams } from "@/data/hooks/useQueryParams";
 
-export default function Cards() {
+interface CardsProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default function Cards({ searchParams }: CardsProps) {
   const { cards, loading, error } = useCardsContext();
-  const searchParams = useSearchParams();
-  const searchQuery = searchParams.get("search") || "";
-  const searchQueryById = searchParams.get("id") || "";
+
+  const { search, id } = useQueryParams<"search" | "id">(searchParams, {
+    search: "",
+    id: "",
+  });
 
   const filteredCards = useMemo(() => {
-    if (searchQueryById) {
+    if (id) {
       return cards.filter((card) =>
-        card.id?.toString().includes(searchQueryById.toString())
+        card.id?.toString().includes(id.toString())
       );
     };
 
-    if (searchQuery) {
+    if (search) {
       return cards.filter((card) =>
-        normalizeText(card.name.toLowerCase()).includes(normalizeText(searchQuery)) || 
-        card?.englishName?.toLowerCase().includes(searchQuery.toLowerCase())
+        normalizeText(card.name.toLowerCase()).includes(normalizeText(search)) || 
+        card?.englishName?.toLowerCase().includes(search.toLowerCase())
       );
     };
 
     return cards;
-  }, [cards, searchQuery, searchQueryById]);
+  }, [cards, search, id]);
 
   if (error) {
     return (

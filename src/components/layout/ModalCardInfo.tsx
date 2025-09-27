@@ -5,10 +5,10 @@ import { clashRegularFont } from "@/fonts";
 import { CardDto } from "@/data/dtos/card.dto";
 import { useLockBodyScroll } from "@/data/hooks/useBodyLockScroll";
 import ButtonClose from "../buttons/ButtonClose";
-import { TroopCardInfo } from "../cards/TroopInfo";
-import { ConstructionCardInfo } from "../cards/ConstructionInfo";
-import { SpellCardInfo } from "../cards/SpellInfo";
-import { TowerTroopCardInfo } from "../cards/TowerTroopInfo";
+import { TroopCardInfo } from "../cards/info/TroopInfo";
+import { ConstructionCardInfo } from "../cards/info/ConstructionInfo";
+import { SpellCardInfo } from "../cards/info/SpellInfo";
+import { TowerTroopCardInfo } from "../cards/info/TowerTroopInfo";
 
 interface ModalCardInfoProps {
   isOpen: boolean;

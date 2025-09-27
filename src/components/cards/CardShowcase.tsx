@@ -4,7 +4,7 @@ import { clashRegularFont } from "@/fonts";
 import RarityCardColorText from "./RarityCardColor";
 import { CardDto } from "@/data/dtos/card.dto";
 import { useState } from "react";
-import ModalCardInfo from "./layout/ModalCardInfo";
+import ModalCardInfo from "../layout/ModalCardInfo";
 
 interface CardShowcaseProps {
   card: CardDto

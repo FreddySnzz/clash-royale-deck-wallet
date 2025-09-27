@@ -7,13 +7,21 @@ import { IoSearchOutline } from "react-icons/io5";
 import { useCardsContext } from "@/data/context/CardsContext";
 import { normalizeText } from "@/data/functions/removeAccent";
 import RenderIcons from "../icons/RenderIcons";
+import { useQueryParams } from "@/data/hooks/useQueryParams";
 
-export function Searchbar() {
+interface SeachbarProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export function Searchbar({ searchParams }: SeachbarProps) {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const { cards } = useCardsContext();
-  const initialQuery = searchParams.get("search") || "";
-  const [searchText, setSearchText] = useState(initialQuery);
+  
+  const { search } = useQueryParams<"search">(searchParams, {
+    search: "",
+  });
+
+  const [searchText, setSearchText] = useState(search);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
@@ -40,8 +48,8 @@ export function Searchbar() {
   }, [cards, searchText]);
 
   useEffect(() => {
-    setSearchText(initialQuery);
-  }, [initialQuery]);
+    setSearchText(search);
+  }, [search]);
 
   return (
     <form className="flex flex-col w-full" onSubmit={handleSearch}>
