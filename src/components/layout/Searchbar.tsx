@@ -8,12 +8,9 @@ import { useCardsContext } from "@/data/context/CardsContext";
 import { normalizeText } from "@/data/functions/removeAccent";
 import RenderIcons from "../icons/RenderIcons";
 import { useQueryParams } from "@/data/hooks/useQueryParams";
+import { PageProps } from "@/data/interfaces/PageProps";
 
-interface SeachbarProps {
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export function Searchbar({ searchParams }: SeachbarProps) {
+export function Searchbar({ searchParams }: PageProps) {
   const router = useRouter();
   const { cards } = useCardsContext();
   

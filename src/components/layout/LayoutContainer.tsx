@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 interface LayoutContainerProps {
   children?: React.ReactNode;
   className?: string;
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: {[key: string]: string | string[] | undefined};
 }
 
 export default function LayoutContainer( props: LayoutContainerProps ) {
