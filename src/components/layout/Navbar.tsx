@@ -4,10 +4,10 @@ import { useState } from "react";
 import * as motion from "motion/react-client"
 import Sidebar from "./Sidebar";
 import ButtonHamburgerMenu from "../buttons/ButtonHambungerMenu";
-import useScrollDirection from "@/data/hooks/useScrollDetect";
 import { LogoWrapped } from "../Logo";
 import { ThemeToggle } from "../buttons/ButtonThemeToggleButton";
 import { Searchbar } from "./Searchbar";
+import useScrollDirection from "@/data/hooks/useScrollDetect";
 import { useCardsContext } from "@/data/context/CardsContext";
 
 export default function Navbar() {

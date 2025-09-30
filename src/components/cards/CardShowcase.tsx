@@ -4,7 +4,8 @@ import { clashRegularFont } from "@/fonts";
 import { CardDto } from "@/data/dtos/card.dto";
 import ModalCardInfo from "../layout/ModalCardInfo";
 import RarityCardColorText from "./RarityCardColor";
-import ElixirDrop from "@/components/icons/ElixirDrop";
+import Card from "./Card";
+import CardEvo from "./CardEvo";
 
 interface CardShowcaseProps {
   card: CardDto
@@ -27,33 +28,19 @@ export default function CardShowcase({ card }: CardShowcaseProps) {
       </p>
 
       <div className="flex justify-center gap-8">
-        <div className="relative" onClick={toggleIsOpen}>
-          <img src={card.imagesUrl.card} alt="cardImage" className="w-30 h-40 object-cover" />
-          { card.elixirCost && 
-            <div className="absolute top-[-20] left-[-35]">
-              <ElixirDrop cost={card.elixirCost} size="lg" />
-            </div>
-          }
-        </div>
+        <Card type="withCost" size="lg" card={card} onClick={toggleIsOpen} />
         { card.imagesUrl.evoCard && 
-          <div className="relative" onClick={toggleIsOpen}>
-            <img src={card.imagesUrl.evoCard} alt="evoCardImage" className="w-30 h-40 object-cover" />
-            <span className={`relative top-[0] left-[0] w-full font-bold 
-              bg-gradient-to-r from-[#9315e4] via-[#dea9ff] to-[#9315e4] bg-clip-text text-transparent animate-gradient-x`}
-            >
-              Versão Evoluída
-            </span>
-          </div>
+          <CardEvo card={card} onClick={toggleIsOpen} />
         }
       </div>
 
       <ModalCardInfo card={card} isOpen={isOpen} onClose={toggleIsOpen} />
         
-      <div className="my-8 text-center">
-        <RarityCardColorText rarity={capitalizeWord(card.rarity)} />
-        <span className={`ml-1 text-white text-shadow-md text-shadow-black/50 ${clashRegularFont.className}`}>
-          card
+      <div className="flex gap-2 my-8 justify-center">
+        <span className={`text-white text-shadow-md text-shadow-black/50 ${clashRegularFont.className}`}>
+          Carta
         </span>
+        <RarityCardColorText rarity={capitalizeWord(card.rarity)} />
       </div>
     </section>
   );

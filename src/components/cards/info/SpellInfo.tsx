@@ -1,6 +1,7 @@
 import { clashRegularFont } from "@/fonts"
 import { iconsRoyale } from "@/data/constants/iconsUrl"
 import { CardDto } from "@/data/dtos/card.dto"
+import RenderIcons from "@/components/icons/RenderIcons"
 
 interface SpellCardInfoProps {
   card: CardDto
@@ -18,7 +19,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
       { card.projectileWaves &&
         <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
           <div className="flex items-center">
-            <img src={iconsRoyale.count} alt="damage" className="w-5 h-5" />
+            <RenderIcons type='icon' src={iconsRoyale.count} alt="attacks-count" />
             <span className="text-slate-500 text-shadow-sm ml-1">
               Ondas de ataque
             </span>
@@ -32,7 +33,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
       { card.radius &&
         <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
           <div className="flex items-center">
-            <img src={iconsRoyale.radius} alt="radius" className="w-5 h-5" />
+            <RenderIcons type='icon' src={iconsRoyale.radius} alt="radius" />
             <span className="text-slate-500 text-shadow-sm ml-1">
               Raio
             </span>
@@ -47,7 +48,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
         <>
           <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
             <div className="flex items-center">
-              <img src={iconsRoyale.damage} alt="damage" className="w-5 h-5" />
+              <RenderIcons type='icon' src={iconsRoyale.damage} alt="damage" />
               <span className="text-slate-500 text-shadow-sm ml-1">
                 Dano
               </span>
@@ -59,7 +60,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
 
           <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
             <div className="flex items-center">
-              <img src={iconsRoyale.crownTowerDamage} alt="damageToCrown" className="w-5 h-5" />
+              <RenderIcons type='icon' src={iconsRoyale.crownTowerDamage} alt="damageToCrown" />
               <span className="text-slate-500 text-shadow-sm ml-1">
                 Dano à Torres
               </span>
@@ -71,7 +72,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
           
           <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
             <div className="flex items-center">
-              <img src={iconsRoyale.radius} alt="radius" className="w-5 h-5" />
+              <RenderIcons type='icon' src={iconsRoyale.radius} alt="radius" />
               <span className="text-slate-500 text-shadow-sm ml-1">
                 Raio
               </span>
@@ -83,7 +84,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
 
           <div className={`flex items-center justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
             <div className="flex items-center">
-              <img src={iconsRoyale.target} alt="targets" className="w-5 h-5" />
+              <RenderIcons type='icon' src={iconsRoyale.target} alt="targets" />
               <span className="text-slate-500 text-shadow-sm ml-1">
                 Alvos
               </span>
@@ -99,7 +100,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
         <>
           <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
             <div className="flex items-center">
-              <img src={iconsRoyale.duration} alt="duration" className="w-5 h-5" />
+              <RenderIcons type='icon' src={iconsRoyale.duration} alt="duration" />
               <span className="text-slate-500 text-shadow-sm ml-1">
                 Duração
               </span>
@@ -111,7 +112,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
 
           <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
             <div className="flex items-center">
-              <img src={iconsRoyale.zapFreeze} alt="effect-duration" className="w-5 h-5" />
+              <RenderIcons type='icon' src={iconsRoyale.zapFreeze} alt="effect-duration" />
               <span className="text-slate-500 text-shadow-sm ml-1">
                 Duração de paralisação 
               </span>
@@ -123,7 +124,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
 
           <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
             <div className="flex items-center">
-              <img src={iconsRoyale.damage} alt="damage" className="w-5 h-5" />
+              <RenderIcons type='icon' src={iconsRoyale.damage} alt="damage" />
               <span className="text-slate-500 text-shadow-sm ml-1">
                 Dano
               </span>
@@ -135,7 +136,7 @@ export function SpellCardInfo({ card }: SpellCardInfoProps) {
 
           <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
             <div className="flex items-center">
-              <img src={iconsRoyale.crownTowerDamage} alt="damageToCrown" className="w-5 h-5" />
+              <RenderIcons type='icon' src={iconsRoyale.crownTowerDamage} alt="damage-to-crown" />
               <span className="text-slate-500 text-shadow-sm ml-1">
                 Dano à Torres
               </span>

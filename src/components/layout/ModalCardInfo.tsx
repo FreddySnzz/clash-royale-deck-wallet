@@ -97,7 +97,7 @@ export default function ModalCardInfo({ isOpen, onClose, card }: ModalCardInfoPr
                     src={card.imagesUrl.usage}
                     alt="preview_usage.gif"
                     loading="lazy"
-                    className="rounded-xl w-85 h-55"
+                    className="rounded-xl w-85 h-50"
                   />
                 </div>
               }

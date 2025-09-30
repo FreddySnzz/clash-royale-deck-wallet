@@ -44,7 +44,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
         <nav className="flex flex-col p-4 gap-2">
           <SidebarItemCollapse title="Decks">
-            <SidebarItem icon={<FaMagic />} label="Criar deck" href="#create-deck" />
+            <SidebarItem icon={<FaMagic />} label="Criar deck" href="/cards/create-deck" />
           </SidebarItemCollapse>
           <SidebarItemCollapse title="Jogador">
           <SidebarItem icon={<FaUser />} label="Seu Perfil" href="/profile" />

@@ -1,3 +1,4 @@
+import RenderIcons from "@/components/icons/RenderIcons"
 import { iconsRoyale } from "@/data/constants/iconsUrl"
 import { CardDto } from "@/data/dtos/card.dto"
 import { clashRegularFont } from "@/fonts"
@@ -12,7 +13,7 @@ export function TroopCardInfo({ card }: TroopCardInfoProps) {
     <>
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.hitpoints} alt="hitpoints" className="w-5 h-5" />
+          <RenderIcons type='icon' src={iconsRoyale.hitpoints} alt="hitpoints" />
           <span className="text-slate-500 text-shadow-sm ml-1">
             Vida
           </span>
@@ -24,7 +25,7 @@ export function TroopCardInfo({ card }: TroopCardInfoProps) {
 
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.damage} alt="damage" className="w-5 h-5" />
+          <RenderIcons type='icon' src={iconsRoyale.damage} alt="damage" />
           <span className="text-slate-500 text-shadow-sm ml-1">
             Dano
           </span>
@@ -36,7 +37,7 @@ export function TroopCardInfo({ card }: TroopCardInfoProps) {
 
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.hitspeed} alt="hitspeed" className="w-5 h-5" />
+          <RenderIcons type='icon' src={iconsRoyale.hitspeed} alt="hitspeed" />
           <span className="text-slate-500 text-shadow-sm ml-1">
             Velocidade de ataque
           </span>
@@ -48,7 +49,7 @@ export function TroopCardInfo({ card }: TroopCardInfoProps) {
 
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.range} alt="range" className="w-5 h-5" />
+          <RenderIcons type='icon' src={iconsRoyale.range} alt="range" />
           <span className="text-slate-500 text-shadow-sm ml-1">
             Alcance
           </span>
@@ -60,7 +61,7 @@ export function TroopCardInfo({ card }: TroopCardInfoProps) {
 
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.speed} alt="speed" className="w-5 h-5" />
+          <RenderIcons type='icon' src={iconsRoyale.speed} alt="speed" />
           <span className="text-slate-500 text-shadow-sm ml-1">
             Velocidade
           </span>
@@ -72,7 +73,7 @@ export function TroopCardInfo({ card }: TroopCardInfoProps) {
       
       <div className={`flex items-center justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.target} alt="targets" className="w-5 h-5" />
+          <RenderIcons type='icon' src={iconsRoyale.target} alt="targets" />
           <span className="text-slate-500 text-shadow-sm ml-1">
             Alvos
           </span>

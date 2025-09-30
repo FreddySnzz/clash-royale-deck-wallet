@@ -75,7 +75,9 @@ export function Searchbar({ searchTextQuery }: SearchbarProps) {
                 <div
                   className="flex gap-2 items-center p-1 bg-slate-800 rounded shadow-md text-slate-200"
                 >
-                  <RenderIcons src={card.imagesUrl.badge}/>
+                  { card.imagesUrl?.badge && 
+                    <RenderIcons type="badge" src={card.imagesUrl?.badge}/>
+                  }
                   <span>
                     {card.name}
                   </span>
