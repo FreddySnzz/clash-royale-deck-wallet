@@ -3,12 +3,14 @@ import {
   FaUser,
   FaMagic
 } from "react-icons/fa";
+import { FaTrophy } from "react-icons/fa6";
 import { TbCardsFilled } from "react-icons/tb";
 import { RiUserSearchLine } from "react-icons/ri";
 import SidebarItem from "./SidebarItem";
 import { SidebarItemCollapse } from "./SidebarItemCollapse";
 import { useLockBodyScroll } from "@/data/hooks/useBodyLockScroll";
 import Link from "next/link";
+import { GiCardPick } from "react-icons/gi";
 
 interface SidebarProps {
   open: boolean;
@@ -44,14 +46,16 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
         <nav className="flex flex-col p-4 gap-2">
           <SidebarItemCollapse title="Decks">
-            <SidebarItem icon={<FaMagic />} label="Criar deck" href="/cards/create-deck" />
+            <SidebarItem icon={<TbCardsFilled />} label="Meus decks" href="/" />
+            <SidebarItem icon={<FaMagic />} label="Criar deck" href="/create-deck" />
           </SidebarItemCollapse>
           <SidebarItemCollapse title="Jogador">
           <SidebarItem icon={<FaUser />} label="Seu Perfil" href="/profile" />
-          <SidebarItem icon={<RiUserSearchLine />} label="Procurar Usuário" href="/search-user" />
+          <SidebarItem icon={<RiUserSearchLine />} label="Procurar Usuário" href="/profile/search-user" />
           </SidebarItemCollapse>
           <SidebarItemCollapse title="Wiki">
-            <SidebarItem icon={<TbCardsFilled />} label="Todas as Cartas" href="/cards" />
+            <SidebarItem icon={<GiCardPick />} label="Todas as Cartas" href="/wiki/all-cards" />
+            <SidebarItem icon={<FaTrophy />} label="Ligas" href="/wiki/leagues" />
           </SidebarItemCollapse>
         </nav>
       </aside>

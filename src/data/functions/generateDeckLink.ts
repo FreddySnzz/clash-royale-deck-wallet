@@ -1,12 +1,13 @@
-interface GenerateDeckLinkProps {
-  cardIds: number[];
-  idCardTower: number;
-};
+import { GenerateDeckLinkProps } from "@/types/Deck.type";
 
-export function GenerateDeckLink(props: GenerateDeckLinkProps) {
-  const deckIds = props.cardIds.slice(0, 8); 
-  const cardIdString = deckIds.join(';');
-  const normalizedLink = `https://link.clashroyale.com/pt/?clashroyale://copyDeck?deck=${cardIdString}&l=Royals&slots=0;0;0;0;0;0;0;0&tt=${props.idCardTower}`;
+export function GenerateDeckLink({ 
+  cardIds, 
+  idCardTower, 
+  lang = "pt", 
+  slots = Array(8).fill("0") 
+}: GenerateDeckLinkProps) {
+  const deckIds = cardIds.slice(0, 8); 
+  const cardIdString = deckIds.join(";");
 
-  return normalizedLink;
+  return `https://link.clashroyale.com/${lang}/?clashroyale://copyDeck?deck=${cardIdString}&l=Royals&slots=${slots.join(";")}&tt=${idCardTower}`;
 };

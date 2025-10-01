@@ -2,7 +2,7 @@ import { clashRegularFont } from "@/fonts"
 
 interface ElixirDropProps {
   cost: number,
-  size?: 'sm' | 'lg' | 'xl'
+  size?: 'sm' | 'md'| 'lg' | 'xl'
 };
 
 export default function ElixirDrop({ cost, size = 'sm' }: ElixirDropProps) {
@@ -10,6 +10,9 @@ export default function ElixirDrop({ cost, size = 'sm' }: ElixirDropProps) {
   let position;
 
   switch (size) {
+    case 'md':
+      sizeScale = 'scale-100';
+      break;
     case 'lg':
       sizeScale = 'scale-150';
       break;

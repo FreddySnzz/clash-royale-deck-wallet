@@ -1,17 +1,21 @@
+import { clashRegularFont } from "@/fonts";
+
 interface TittleProps {
   tittle: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 export default function Tittle(props: TittleProps) {
   return (
-    <div className={``}>
-      <h1 className={`font-black text-3xl text-gray-100`}>
+    <div className={`${clashRegularFont.className}`}>
+      <h1 className={`text-2xl text-slate-200 text-shadow-md text-shadow-black`}>
         {props.tittle}
       </h1>
-      <h2 className={`font-light text-sm text-gray-400`}>
-        {props.subtitle}
-      </h2>
+      { props.subtitle &&
+        <h2 className={`text-sm text-slate-400`}>
+          {props.subtitle}
+        </h2>
+      }
     </div>
   );
 };
