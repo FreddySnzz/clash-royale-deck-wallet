@@ -1,11 +1,19 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-// import { UserEntity } from "./app/api/user/entities/user.entity";
+import { UserEntity } from "@/data/entities/User.entity";
 
-export const AppDataSource = new DataSource({
+const AppDataSource = new DataSource({
   type: "sqlite",
-  database: "database.sqlite",
-  synchronize: false, 
+  database: "./db/deck-royale-wallet.database.sqlite",
+  synchronize: true,
   logging: true,
-  // entities: [UserEntity],
+  entities: [UserEntity],
 });
+
+export const getDataSource = async () => {
+  if (!AppDataSource.isInitialized) {
+    await AppDataSource.initialize();
+  };
+  
+  return AppDataSource;
+};
