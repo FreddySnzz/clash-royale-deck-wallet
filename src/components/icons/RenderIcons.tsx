@@ -16,6 +16,7 @@ export default function RenderIcons({ src, alt = 'iconImage', className, type }:
           alt={alt} 
           className="min-w-full min-h-full" 
           draggable={false}
+          onContextMenu={handleContextMenu}
         />
         {type}
       </div>
