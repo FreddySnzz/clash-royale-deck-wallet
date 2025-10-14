@@ -1,3 +1,4 @@
+import { handleContextMenu } from "@/data/functions/preventeContextMenu";
 import { clashRegularFont } from "@/fonts"
 
 interface ElixirDropProps {
@@ -47,6 +48,8 @@ export default function ElixirDrop({ cost, size = 'sm' }: ElixirDropProps) {
           src={'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9CVjU0cHJqTldKQ2NqZW1XUUg0Ry5wbmcifQ:supercell:-tQDKyplbmUYKqmqudgsN3v8FURk1KqarHhOjAplLfI?width=2400'} 
           alt="elixirImage" 
           className="overflow-hidden"
+          draggable={false}
+          onContextMenu={handleContextMenu}
         />
       </div>
     </div>

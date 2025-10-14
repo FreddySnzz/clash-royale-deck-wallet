@@ -98,7 +98,7 @@ export default function DeckContainer() {
                 </div>
           
                 {deckLink &&
-                  <Link href={deckLink} className="z-49">
+                  <Link href={deckLink} className="z-45">
                     <RenderIcons src={iconsRoyale.copyDeck} type="icon" alt="copy-deck-icon" />
                   </Link>
                 }

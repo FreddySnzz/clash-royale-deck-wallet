@@ -1,5 +1,6 @@
 import ElixirDrop from "@/components/icons/ElixirDrop";
 import { CardDto } from "@/data/dtos/card.dto";
+import { handleContextMenu } from "@/data/functions/preventeContextMenu";
 
 interface CardProps {
   card: CardDto;
@@ -36,6 +37,8 @@ export default function Card({ card, onClick, size, type }: CardProps) {
       <div className="relative" onClick={onClick}>
         <img 
           src={card.imagesUrl.card} 
+          draggable={false}
+          onContextMenu={handleContextMenu}
           alt="cardImage" 
           className={`${cardSize} object-cover`} 
         />
@@ -51,6 +54,8 @@ export default function Card({ card, onClick, size, type }: CardProps) {
       <div className="relative" onClick={onClick}>
         <img 
           src={card.imagesUrl.evoCard} 
+          draggable={false}
+          onContextMenu={handleContextMenu}
           alt="cardImage" 
           className={`${cardSize} object-cover`} 
         />
@@ -67,6 +72,8 @@ export default function Card({ card, onClick, size, type }: CardProps) {
         <img 
           src={card.imagesUrl.card} 
           alt="cardImage" 
+          draggable={false}
+          onContextMenu={handleContextMenu}
           className={`${cardSize} object-cover`} 
         />
       </div>

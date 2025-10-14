@@ -22,7 +22,6 @@ export function Searchbar({ searchTextQuery }: SearchbarProps) {
     setSearchText(event.target.value);
   };
 
-  
   const handleSearch = (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();
     if (searchText.trim()) {

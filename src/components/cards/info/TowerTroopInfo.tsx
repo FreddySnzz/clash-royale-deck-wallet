@@ -1,5 +1,6 @@
 import { iconsRoyale } from "@/data/constants/iconsUrl"
 import { CardDto } from "@/data/dtos/card.dto"
+import { handleContextMenu } from "@/data/functions/preventeContextMenu"
 import { clashRegularFont } from "@/fonts"
 
 interface TowerTroopCardInfoProps {
@@ -12,7 +13,7 @@ export function TowerTroopCardInfo({ card }: TowerTroopCardInfoProps) {
     <>
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.hitpoints} alt="hitpoints" className="w-5 h-5" />
+          <img src={iconsRoyale.hitpoints} alt="hitpoints" className="w-5 h-5" draggable={false} onContextMenu={handleContextMenu}/>
           <span className="text-slate-500 text-shadow-sm ml-1">
             Vida
           </span>
@@ -24,7 +25,7 @@ export function TowerTroopCardInfo({ card }: TowerTroopCardInfoProps) {
 
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.damage} alt="damage" className="w-5 h-5" />
+          <img src={iconsRoyale.damage} alt="damage" className="w-5 h-5" draggable={false} onContextMenu={handleContextMenu}/>
           <span className="text-slate-500 text-shadow-sm ml-1">
             Dano
           </span>
@@ -36,7 +37,7 @@ export function TowerTroopCardInfo({ card }: TowerTroopCardInfoProps) {
 
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.hitspeed} alt="hitspeed" className="w-5 h-5" />
+          <img src={iconsRoyale.hitspeed} alt="hitspeed" className="w-5 h-5" draggable={false} onContextMenu={handleContextMenu}/>
           <span className="text-slate-500 text-shadow-sm ml-1">
             Velocidade de ataque
           </span>
@@ -48,7 +49,7 @@ export function TowerTroopCardInfo({ card }: TowerTroopCardInfoProps) {
 
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.range} alt="range" className="w-5 h-5" />
+          <img src={iconsRoyale.range} alt="range" className="w-5 h-5" draggable={false} onContextMenu={handleContextMenu}/>
           <span className="text-slate-500 text-shadow-sm ml-1">
             Alcance
           </span>
@@ -60,7 +61,7 @@ export function TowerTroopCardInfo({ card }: TowerTroopCardInfoProps) {
 
       <div className={`flex items-center mb-2 justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.speed} alt="speed" className="w-5 h-5" />
+          <img src={iconsRoyale.speed} alt="speed" className="w-5 h-5" draggable={false} onContextMenu={handleContextMenu}/>
           <span className="text-slate-500 text-shadow-sm ml-1">
             Velocidade
           </span>
@@ -72,7 +73,7 @@ export function TowerTroopCardInfo({ card }: TowerTroopCardInfoProps) {
       
       <div className={`flex items-center justify-between p-1 rounded-md bg-slate-800 ${clashRegularFont.className}`}>
         <div className="flex items-center">
-          <img src={iconsRoyale.target} alt="targets" className="w-5 h-5" />
+          <img src={iconsRoyale.target} alt="targets" className="w-5 h-5" draggable={false} onContextMenu={handleContextMenu}/>
           <span className="text-slate-500 text-shadow-sm ml-1">
             Alvos
           </span>

@@ -9,6 +9,7 @@ import { TroopCardInfo } from "../cards/info/TroopInfo";
 import { ConstructionCardInfo } from "../cards/info/ConstructionInfo";
 import { SpellCardInfo } from "../cards/info/SpellInfo";
 import { TowerTroopCardInfo } from "../cards/info/TowerTroopInfo";
+import { handleContextMenu } from "@/data/functions/preventeContextMenu";
 
 interface ModalCardInfoProps {
   isOpen: boolean;
@@ -98,6 +99,8 @@ export default function ModalCardInfo({ isOpen, onClose, card }: ModalCardInfoPr
                     alt="preview_usage.gif"
                     loading="lazy"
                     className="rounded-xl w-85 h-50"
+                    draggable={false}
+                    onContextMenu={handleContextMenu}
                   />
                 </div>
               }
