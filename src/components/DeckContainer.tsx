@@ -9,53 +9,97 @@ import { iconsRoyale } from "@/data/constants/iconsUrl";
 import Card from "./cards/Card";
 import { buildDeck } from "@/data/functions/deckBuilder";
 import Loading from "./Loading";
+import BuilderDeck from "./BuilderDeck";
+
+import { userDecks } from "@/data/__mocks__/Deck.mock";
 
 export default function DeckContainer() {
   const { cards, loading } = useCardsContext();
 
-  const link = 'https://link.clashroyale.com/pt/?clashroyale://copyDeck?deck=26000000;26000001;26000002;26000003;26000004;26000005;26000006;26000007&l=Royals&slots=0;0;0;0;0;0;0;0&tt=159000001';
-  const parsed = ParseDeckLink(link);
+  const handleEditDeck = () => {
+    console.log("EDITAR DECK"),
+    <BuilderDeck />
+  };
 
   if (loading) return <Loading />;
+  
+  return (
+    <div>
+      {!userDecks.length && (
+        <div className="flex justify-center items-center min-h-[70vh] text-slate-200 font-bold">
+          <span>
+            Nenhum deck salvo!
+          </span>
+        </div>
+      )}
 
-  if (parsed) {
-    const deck = buildDeck(cards, parsed);
-    if (deck) {
-      return (
-        <div className="p-2 bg-slate-700 rounded-lg shadow-md shadow-black/20">
-          <h1 className={`p-2 text-slate-200 text-lg text-shadow-sm text-shadow-black/50 ${clashRegularFont.className}`}>
-            DECK NAME
-          </h1>
-    
-          <div className="grid grid-cols-4">
-            {deck.cards?.map((card) => (
-              <div key={card?.id} className="flex items-center justify-center">
-                <Card type="withCost" size="md" card={card} />
-              </div>
-            ))}
-          </div>
+      {userDecks.map((deck, index) => {
+        const parsedData = ParseDeckLink(deck.link);
 
-          <div className="flex justify-center items-center gap-4 mt-2">
-            <span className={`text-slate-300 text-md text-shadow-sm text-shadow-black/50 ${clashRegularFont.className}`}>
-              Tropa da Torre
-            </span>
-            <Card type="withCost" size="sm" card={deck.tower} />
-          </div>
-
-          <div className="flex justify-evenly items-center mt-4 m-2 p-2 rounded-lg bg-slate-600">
-            <div className="flex gap-1 overflow-hidden">
-              <RenderIcons src={iconsRoyale.elixirDrop} type="icon" alt="elixirDrop" className="scale-500" />
-              <span className="text-slate-200 font-bold">
-                {deck.averageCost}
+        if (!parsedData) {
+          return (
+            <div 
+              key={index} 
+              className="flex justify-center items-center min-h-[10vh] bg-slate-700 rounded-lg shadow-md shadow-black/20 mb-4 text-red-600 font-bold"
+            >
+              <span>
+                Deck com link inválido!
               </span>
             </div>
-      
-            <Link href={link}>
-              <RenderIcons src={iconsRoyale.copyDeck} type="icon" alt="copy-deck-icon" />
-            </Link>
-          </div>
-        </div>
-      );
-    };
-  };
+          );
+        };
+
+        const deckBuild = buildDeck(cards, parsedData);
+
+        if (deckBuild) {
+          return (
+            <div 
+              key={deck.id} 
+              className="p-2 bg-slate-700 rounded-lg shadow-md shadow-black/20 mb-4 cursor-pointer"
+              onClick={handleEditDeck}
+            >
+              <div className="p-2">
+                <h1 className={`p-2 text-center text-slate-200 text-lg text-shadow-sm text-shadow-black/50 bg-slate-600 rounded-lg ${clashRegularFont.className}`}>
+                  {deck.name}
+                </h1>
+              </div>
+        
+              <div className="grid grid-cols-4">
+                {deckBuild.cards?.map((card, index) => {
+                  const isEvoCard = (index === 0 || index === 1) && card.imagesUrl?.evoCard;
+                  const cardType = isEvoCard ? "evoWithCost" : "withCost";
+
+                  return (
+                    <div key={card.id} className="flex items-center justify-center">
+                      <Card type={cardType} size="md" card={card} />
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="flex justify-center items-center gap-4 mt-2">
+                <span className={`text-slate-300 text-md text-shadow-sm text-shadow-black/50 ${clashRegularFont.className}`}>
+                  Tropa da Torre
+                </span>
+                <Card type="withCost" size="sm" card={deckBuild.tower} />
+              </div>
+
+              <div className="flex justify-evenly items-center mt-4 m-2 p-2 rounded-lg bg-slate-600">
+                <div className="flex gap-1 overflow-hidden">
+                  <RenderIcons src={iconsRoyale.elixirDrop} type="icon" alt="elixirDrop" className="scale-500" />
+                  <span className="text-slate-200 font-bold">
+                    {deckBuild.averageCost.toFixed(1)}
+                  </span>
+                </div>
+          
+                <Link href={deck.link} className="z-49">
+                  <RenderIcons src={iconsRoyale.copyDeck} type="icon" alt="copy-deck-icon" />
+                </Link>
+              </div>
+            </div>
+          );
+        };
+      })}
+    </div>
+  );
 };

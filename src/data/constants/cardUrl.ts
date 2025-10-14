@@ -94,8 +94,11 @@ export const cardImages = {
   },
   "SkeletonArmy": {
     "card": 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9HZWRmRXkxYnFIQmF2RkRhaHZXNC5wbmcifQ:supercell:EPckl8v89K-P5moyMXee7J1k3VkqxFEJc1_H4zFW3wo?width=800',
-    "usage": '',
+    "evoCard": 'https://static.wikia.nocookie.net/clashroyale/images/7/74/SkeletonArmyCardEvolution.png',
+    "usage": 'https://static.wikia.nocookie.net/clashroyale/images/6/63/Skeleton_Army_Preview.gif',
+    "evoUsage": '',
     "render": '',
+    "evoRender": '',
     "badge": 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9WdlVqTkNOY2dpS0FxU2lCeFp3Si5wbmcifQ:supercell:16geSQNVzCyRmVG1A_Owm4GzcPncUVVquB5T-js9CUA?width=800'
   },
   "Bomber": {
@@ -364,8 +367,11 @@ export const cardImages = {
   },
   "Ghost": {
     "card": 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC8xVmhwSzROdEdOMzhxM1F4bjFEZC5wbmcifQ:supercell:aljKNJOIbKTe96OOn3H6Y-endoA8hcsGkldwUWKYIpI?width=800',
-    "usage": '',
+    "evoCard": 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC81OWh5VnppVXc5QzhSbnV0WWJueS5wbmcifQ:supercell:TDt9TZkId8v9haToq2NbCq0v8LE2eROl3juoovB_dBE?width=800',
+    "usage": 'https://static.wikia.nocookie.net/clashroyale/images/0/00/Royal_Ghost_Preview.gif',
+    "evoUsage": '',
     "render": '',
+    "evoRender": '',
     "badge": 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC93QzFKZUd2MVV1NFpkQlR3WmdKeC5wbmcifQ:supercell:OdDbQ3A01VPo02z8kfZYHv-sQkIErM0gI-Z3sDNpRYM?width=800'
   },
   "RamRider": {

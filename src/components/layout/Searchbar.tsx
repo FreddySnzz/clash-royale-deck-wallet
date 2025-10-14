@@ -22,13 +22,15 @@ export function Searchbar({ searchTextQuery }: SearchbarProps) {
     setSearchText(event.target.value);
   };
 
+  
   const handleSearch = (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();
     if (searchText.trim()) {
-      router.push(`/cards?search=${encodeURIComponent(searchText)}`);
+      console.log(searchText)
+      router.push(`/wiki/all-cards?search=${encodeURIComponent(searchText)}`);
       setSearchText('')
     } else {
-      router.push(`/cards`);
+      router.push(`/wiki/all-cards`);
       setSearchText('')
     }
   };
@@ -69,7 +71,7 @@ export function Searchbar({ searchTextQuery }: SearchbarProps) {
             filteredCards.map((card) => (
               <Link 
                 key={card.id} 
-                href={`cards?search=${card.name}&id=${card.id}`}
+                href={`/wiki/all-cards?search=${card.name}&id=${card.id}`}
                 onClick={() => setSearchText('')}
               >
                 <div

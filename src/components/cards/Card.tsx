@@ -4,7 +4,7 @@ import { CardDto } from "@/data/dtos/card.dto";
 interface CardProps {
   card: CardDto;
   size: 'sm' | 'md' | 'lg',
-  type: 'withCost' | 'withoutCost',
+  type: 'withCost' | 'evoWithCost' | 'withoutCost',
   onClick?: () => void
 };
 
@@ -34,8 +34,27 @@ export default function Card({ card, onClick, size, type }: CardProps) {
   if (type === 'withCost') {
     return (
       <div className="relative" onClick={onClick}>
-        <img src={card.imagesUrl.card} alt="cardImage" className={`${cardSize} object-cover`} />
-        { card.elixirCost && 
+        <img 
+          src={card.imagesUrl.card} 
+          alt="cardImage" 
+          className={`${cardSize} object-cover`} 
+        />
+        {card.elixirCost && 
+          <div className={`absolute ${elixirDropPosition}`}>
+            <ElixirDrop cost={card.elixirCost} size={`${size === 'md' ? 'md' : 'lg'}`} />
+          </div>
+        }
+      </div>
+    );
+  } else if (type === 'evoWithCost') { 
+    return (
+      <div className="relative" onClick={onClick}>
+        <img 
+          src={card.imagesUrl.evoCard} 
+          alt="cardImage" 
+          className={`${cardSize} object-cover`} 
+        />
+        {card.elixirCost && 
           <div className={`absolute ${elixirDropPosition}`}>
             <ElixirDrop cost={card.elixirCost} size={`${size === 'md' ? 'md' : 'lg'}`} />
           </div>
@@ -45,7 +64,11 @@ export default function Card({ card, onClick, size, type }: CardProps) {
   } else {
     return (
       <div className="relative" onClick={onClick}>
-        <img src={card.imagesUrl.card} alt="cardImage" className={`${cardSize} object-cover`} />
+        <img 
+          src={card.imagesUrl.card} 
+          alt="cardImage" 
+          className={`${cardSize} object-cover`} 
+        />
       </div>
     );
   };
