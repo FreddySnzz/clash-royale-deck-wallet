@@ -12,6 +12,7 @@ import Loading from "./Loading";
 import BuilderDeck from "./BuilderDeck";
 
 import { userDecks } from "@/data/__mocks__/Deck.mock";
+import { GenerateDeckLink } from "@/data/functions/generateDeckLink";
 
 export default function DeckContainer() {
   const { cards, loading } = useCardsContext();
@@ -50,6 +51,10 @@ export default function DeckContainer() {
         };
 
         const deckBuild = buildDeck(cards, parsedData);
+        const deckLink = GenerateDeckLink({
+          cardIds: parsedData.cardIds,
+          idCardTower: parsedData.towerId
+        });
 
         if (deckBuild) {
           return (
@@ -92,9 +97,11 @@ export default function DeckContainer() {
                   </span>
                 </div>
           
-                <Link href={deck.link} className="z-49">
-                  <RenderIcons src={iconsRoyale.copyDeck} type="icon" alt="copy-deck-icon" />
-                </Link>
+                {deckLink &&
+                  <Link href={deckLink} className="z-49">
+                    <RenderIcons src={iconsRoyale.copyDeck} type="icon" alt="copy-deck-icon" />
+                  </Link>
+                }
               </div>
             </div>
           );
