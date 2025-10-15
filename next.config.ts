@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       new URL('https://images.squarespace-cdn.com/content/v1/**'),
       new URL('https://clashroyale.fandom.com/wiki/**'),
       new URL('https://static.wikia.nocookie.net/clashroyale/images/**'),
+      new URL('https://aminoapps.com/**'),
     ],
   },
   eslint: {

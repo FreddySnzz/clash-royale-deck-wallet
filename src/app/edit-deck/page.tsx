@@ -1,10 +1,10 @@
 import LayoutContainer from "@/components/layout/LayoutContainer";
-import BuilderDeck from "@/components/BuilderDeck";
+import BuilderDeckContainer from "@/components/BuilderDeckContainer";
 
 export default async function EditDeckPage() {
   return (
     <LayoutContainer>
-      <BuilderDeck />
+      <BuilderDeckContainer />
     </LayoutContainer>
   );
 }

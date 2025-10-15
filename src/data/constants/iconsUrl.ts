@@ -13,6 +13,7 @@ export const iconsRoyale = {
   deployTime: 'https://cdn.statsroyale.com/v2/icons/deploy-time.png',
   trophy: 'https://cdn.statsroyale.com/images/trophy.png',
   copyDeck: 'https://cdn.statsroyale.com/images/copy.png',
+  changeCards: 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9KQ0hDRXFIYVZHemNDNllrYUxYby5wbmcifQ:supercell:MUAVB5DON99kVqXdhtakxZnQfPZP2HttEnZZwG7542Q?width=2400',
   elixirDrop: 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9CVjU0cHJqTldKQ2NqZW1XUUg0Ry5wbmcifQ:supercell:-tQDKyplbmUYKqmqudgsN3v8FURk1KqarHhOjAplLfI?width=2400'
 }
 

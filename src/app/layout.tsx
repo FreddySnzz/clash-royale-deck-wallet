@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { Metadata } from "next";
 import { AppProvider } from "@/data/context/AppContext";
 import { CardsProvider } from "@/data/context/CardsContext";
+import { ToastProvider } from "@/data/context/ToastContext";
 
 export const metadata: Metadata = {
   title: "Royale Deck Wallet",
@@ -17,9 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <AppProvider>
         <CardsProvider>
-          <body>
-            {children}
-          </body>
+            <body>
+              <ToastProvider>
+                {children}
+              </ToastProvider>
+            </body>
         </CardsProvider>
       </AppProvider>
     </html>
