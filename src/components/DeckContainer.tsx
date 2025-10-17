@@ -97,12 +97,12 @@ export default function DeckContainer({ deckLink }: DeckContainerProps) {
             value={deckName}
             onChange={handleChange}
             className={`p-2 mb-4 text-center w-full text-lg text-shadow-sm text-shadow-black/50 focus:outline-0 focus:text-slate-200 text-slate-200
-              bg-slate-600 rounded-lg ${clashRegularFont.className}
+              bg-slate-600 rounded-lg shadow-sm shadow-black/20 ${clashRegularFont.className}
             `}
           />
         </div>
 
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-4 gap-2">
           {newDeck.map((index) => {
             return (
               <div key={index} className="flex items-center justify-center">
@@ -124,24 +124,26 @@ export default function DeckContainer({ deckLink }: DeckContainerProps) {
            <Image 
               src={'/random_card.png'} 
               alt="randomTowerCardImage" 
-              width={80}
-              height={120}
+              width={40}
+              height={60}
             />
-         </div>
+        </div>
 
-         <div className="flex justify-evenly items-center mt-4 m-2 p-2 rounded-lg bg-slate-600">
-          <div className="flex gap-1 overflow-hidden">
+        <div className="flex justify-evenly items-center mt-4 m-2 p-2 rounded-lg bg-slate-600 shadow-sm shadow-black/20">
+          <div className="flex gap-1 item overflow-hidden">
             <RenderIcons src={iconsRoyale.elixirDrop} type="icon" alt="elixirDrop" className="scale-500" />
-            <span className="text-slate-200 font-bold">
+            <span className={`text-slate-200 ${clashRegularFont.className}`}>
               0.0
             </span>
           </div>
-
-          <div className="flex gap-1 overflow-hidden items-center text-slate-200">
+        </div>
+        
+        <div className="flex justify-evenly items-center mt-4 m-2 p-2 rounded-lg bg-green-700 shadow-sm shadow-black/20">
+          <div className="flex gap-2 items-center text-slate-200">
             <FaSave className="text-xl" />
             <button 
               onClick={() => console.log("SALVAR DECK")}
-              className="font-bold"
+              className={`text-shadow-sm text-shadow-black/50 ${clashRegularFont.className}`}
             >
               Salvar Deck
             </button>

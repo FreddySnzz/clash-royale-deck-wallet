@@ -9,6 +9,7 @@ import { ChangeEvent, useState } from "react";
 import { ValidateDeckLink } from "@/data/functions/validateDeckLink";
 import Tittle from "./layout/Tittle";
 import DeckContainer from "./DeckContainer";
+import { GenerateDeckLink } from "@/data/functions/generateDeckLink";
 
 interface BuilderDeckContainerProps {
   link?: string;
@@ -31,6 +32,14 @@ export default function BuilderDeckContainer({ mode = 'create', link }: BuilderD
     } else if (selectedCardIds.length < MAX_CARDS) {
       setSelectedCardIds([...selectedCardIds, cardId]);
     };
+  };
+
+  if (isSelectionComplete) {
+    var deckLinkGenerated = GenerateDeckLink({
+      cardIds: selectedCardIds,
+      idCardTower: 159000000
+    });
+    console.log(deckLinkGenerated)
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -71,7 +80,7 @@ export default function BuilderDeckContainer({ mode = 'create', link }: BuilderD
             </button>
           </div>
         </form>
-        { deckVerified ? <DeckContainer deckLink={deckLink} /> : <DeckContainer /> }
+        { deckVerified ? <DeckContainer deckLink={deckLink} /> : <DeckContainer deckLink={deckLinkGenerated === undefined ? '' : deckLinkGenerated} /> }
       </div>
       <div className="grid grid-cols-8 p-2 bg-slate-700 rounded-lg">
         {cards.map((card) => {

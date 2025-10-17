@@ -16,7 +16,6 @@ import ModalCardInfo from "./layout/ModalCardInfo";
 import { CardDto } from "@/data/dtos/card.dto";
 
 import { userDecks } from "@/data/__mocks__/Deck.mock"; // mock
-import { BiSolidMessageSquareEdit } from "react-icons/bi";
 
 export default function DecksShowcase() {
   const { cards, loading } = useCardsContext();
@@ -75,18 +74,17 @@ export default function DecksShowcase() {
           return (
             <div 
               key={deck.id} 
-              className="p-2 bg-slate-700 rounded-lg shadow-md shadow-black/20 mb-4"
+              className="p-4 bg-slate-700 rounded-lg shadow-md shadow-black/20 mb-4"
             >
-              <div className={`flex justify-evenly items-center text-slate-200 text-lg text-shadow-sm text-shadow-black/50 bg-slate-600 rounded-lg 
-                p-2 mb-4 ${clashRegularFont.className}`}
-              >
-                <h1>
-                  {deck.name}
-                </h1>
-                <Link href={'/edit-deck'}>
-                  <BiSolidMessageSquareEdit className="text-2xl" />
-                </Link>
-              </div>
+              <Link href={'/edit-deck'}>  
+                <div className={`flex justify-center items-center bg-slate-600 rounded-lg 
+                  p-2 mb-4 shadow-sm shadow-black/20 ${clashRegularFont.className}`
+                }>
+                  <span className={`text-slate-200 text-shadow-sm ${deck.name.length <= 30 ? "text-lg" : "text-md py-1 text-shadow-lg"} text-shadow-black/50`}>
+                    {deck.name}
+                  </span>
+                </div>
+              </Link>
         
               <div className="grid grid-cols-4">
                 {deckBuild.cards?.map((card, index) => {
@@ -108,7 +106,7 @@ export default function DecksShowcase() {
                 <Card type="withCost" size="sm" card={deckBuild.tower} onClick={() => handleCardClick(deckBuild.tower)} />
               </div>
 
-              <div className="flex justify-evenly items-center mt-4 m-2 p-2 rounded-lg bg-slate-600">
+              <div className="flex justify-evenly items-center mt-4 m-2 p-2 rounded-lg bg-slate-600 shadow-sm shadow-black/20">
                 <div className="flex gap-1 overflow-hidden">
                   <RenderIcons src={iconsRoyale.elixirDrop} type="icon" alt="elixirDrop" className="scale-500" />
                   <span className="text-slate-200 font-bold">
